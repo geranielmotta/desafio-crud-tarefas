@@ -54,3 +54,18 @@ Rotas:
     
     Deve ser possível marcar a task como completa ou não. Isso significa que se a task estiver concluída, deve voltar ao seu estado “normal”.
     Antes da alteração, deve ser feito uma validação se o `id` pertence a uma task salva no banco de dados.
+
+
+# Como utilizar API
+
+Baixar as dependências do projeto:
+
+ `npm install`
+
+ Subir o servidor:
+
+ `npm run dev`
+
+ Para popular o banco de dados com o arquivo CSV:
+
+ `node src/streams/import-file-csv.js`
