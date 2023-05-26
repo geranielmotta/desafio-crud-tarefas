@@ -20,38 +20,6 @@ export const routes = [
     }
   },
   {
-    method: 'POST',
-    path: buildRoutePath('/tasks'),
-    handler: (req, res) => {
-      const { title, description } = req.body
-
-      if (!title) {
-        return res.writeHead(400).end(
-          JSON.stringify({ message: 'title is required' }),
-        )
-      }
-
-      if (!description) {
-        return res.writeHead(400).end(
-          JSON.stringify({message: 'description is required' })
-        )
-      }
-
-      const task = {
-        id: randomUUID(),
-        title,
-        description,
-        completed_at: null,
-        created_at: new Date(),
-        updated_at: new Date(),
-      }
-
-      database.insert('tasks', task)
-
-      return res.writeHead(201).end()
-    }
-  },
-  {
     method: 'PUT',
     path: buildRoutePath('/tasks/:id'),
     handler: (req, res) => {
@@ -94,6 +62,38 @@ export const routes = [
       database.delete('tasks', id)
 
       return res.writeHead(204).end()
+    }
+  },
+  {
+    method: 'POST',
+    path: buildRoutePath('/tasks'),
+    handler: (req, res) => {
+      const { title, description } = req.body
+
+      if (!title) {
+        return res.writeHead(400).end(
+          JSON.stringify({ message: 'title is required' }),
+        )
+      }
+
+      if (!description) {
+        return res.writeHead(400).end(
+          JSON.stringify({message: 'description is required' })
+        )
+      }
+
+      const task = {
+        id: randomUUID(),
+        title,
+        description,
+        completed_at: null,
+        created_at: new Date(),
+        updated_at: new Date(),
+      }
+
+      database.insert('tasks', task)
+
+      return res.writeHead(201).end()
     }
   },
   {
