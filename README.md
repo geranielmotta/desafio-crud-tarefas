@@ -66,6 +66,6 @@ Baixar as dependências do projeto:
 
  `npm run dev`
 
- Para popular o banco de dados com o arquivo CSV:
+ Com os servidor ativo, rode o comando abaixo para popular o banco de dados com o arquivo CSV:
 
  `node src/streams/import-file-csv.js`
